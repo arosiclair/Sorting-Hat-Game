@@ -6,3 +6,18 @@ This is my first time setting up a git repo and using github so this is just a t
 *Edit test* Testing commiting and merging changes.
 
 Actual info: This is a class project for CSE219 regarding active GUI rendering and multithreading which I just realized hasn't even been posted yet.
+
+Quoted from Richard McKenna:
+
+	AudioManager - this library provides for the easy loading and playing of .WAV (recorded audio, good for sound effects) and .MIDI (programmed music) files.
+
+	MiniGameFramework - this library serves as the starting point for a simple little real time graphical game application. Note that this manages the timer's update/render thread and forwards user input to the appropriate handlers. Understand that the way events are handled here is very different from how we did it in HW 2.
+
+	PropertiesManager - this is the same library we used in HW 2 for loading settings information from XML files. We'll use this to load game settings.
+
+	TheSortingHat - this project has the game application. Note that the game is a Harry Potter themed game for learning about sorting algorithms, but the theme could easily be changed by changing the XML files and swapping out art and audio files.
+
+	TheSortingHatLevelEditor - this is a Sorting Hat level editing application, which was used to make the two levels currently in the game. Students will use this program to make two more levels.
+
+	XMLUtilities - this library is the same one we used in HW 2 to load and extract data from XML files.
+
