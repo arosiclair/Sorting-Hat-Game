@@ -81,6 +81,10 @@ public class TheSortingHat
         IMAGE_BUTTON_NEW_MOUSE_OVER,
         IMAGE_BUTTON_STATS,
         IMAGE_BUTTON_STATS_MOUSE_OVER,
+        //Back button images
+        IMAGE_BUTTON_BACK,
+        IMAGE_BUTTON_BACK_MOUSE_OVER,
+        
         IMAGE_BUTTON_TEMP_TILE,
         IMAGE_BUTTON_TEMP_TILE_MOUSE_OVER,
         IMAGE_CURSOR_WAND,

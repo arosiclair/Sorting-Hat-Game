@@ -76,6 +76,8 @@ public class SortingHatConstants
     public static final int CONTROLS_MARGIN = 0;
     public static final int NEW_BUTTON_X = 0;
     public static final int NEW_BUTTON_Y = 0;
+    public static final int BACK_BUTTON_X = NEW_BUTTON_X + 130 + CONTROLS_MARGIN;
+    public static final int BACK_BUTTON_Y = 0;
     public static final int TILE_COUNT_X = NEW_BUTTON_X + 260 + CONTROLS_MARGIN;
     public static final int TILE_COUNT_Y = 0;
     public static final int TILE_COUNT_OFFSET = 145;

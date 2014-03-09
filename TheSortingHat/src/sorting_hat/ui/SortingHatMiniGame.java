@@ -151,6 +151,8 @@ public class SortingHatMiniGame extends MiniGame
         // ACTIVATE THE TOOLBAR AND ITS CONTROLS
         guiButtons.get(NEW_GAME_BUTTON_TYPE).setState(SortingHatTileState.VISIBLE_STATE.toString());
         guiButtons.get(NEW_GAME_BUTTON_TYPE).setEnabled(true);
+        guiButtons.get(BACK_BUTTON_TYPE).setState(SortingHatTileState.VISIBLE_STATE.toString());
+        guiButtons.get(BACK_BUTTON_TYPE).setEnabled(true);
         guiDecor.get(MISCASTS_COUNT_TYPE).setState(SortingHatTileState.VISIBLE_STATE.toString());
         guiDecor.get(TIME_TYPE).setState(SortingHatTileState.VISIBLE_STATE.toString());
         guiButtons.get(STATS_BUTTON_TYPE).setState(SortingHatTileState.VISIBLE_STATE.toString());
@@ -185,6 +187,8 @@ public class SortingHatMiniGame extends MiniGame
         // DEACTIVATE THE TOOLBAR CONTROLS
         guiButtons.get(NEW_GAME_BUTTON_TYPE).setState(SortingHatTileState.INVISIBLE_STATE.toString());
         guiButtons.get(NEW_GAME_BUTTON_TYPE).setEnabled(false);
+        guiButtons.get(BACK_BUTTON_TYPE).setState(SortingHatTileState.INVISIBLE_STATE.toString());
+        guiButtons.get(BACK_BUTTON_TYPE).setEnabled(false);
         guiButtons.get(BACK_BUTTON_TYPE).setState(SortingHatTileState.INVISIBLE_STATE.toString());
         guiButtons.get(BACK_BUTTON_TYPE).setEnabled(false);
         guiDecor.get(MISCASTS_COUNT_TYPE).setState(SortingHatTileState.INVISIBLE_STATE.toString());
@@ -369,6 +373,17 @@ public class SortingHatMiniGame extends MiniGame
         s = new Sprite(sT, NEW_BUTTON_X, NEW_BUTTON_Y, 0, 0, SortingHatTileState.INVISIBLE_STATE.toString());
         guiButtons.put(NEW_GAME_BUTTON_TYPE, s);
         
+        //The Back button
+        String backButton = props.getProperty(SortingHatPropertyType.IMAGE_BUTTON_BACK);
+        sT = new SpriteType(BACK_BUTTON_TYPE);
+        img = loadImage(imgPath + backButton);
+        sT.addState(SortingHatTileState.VISIBLE_STATE.toString(), img);
+        String backMouseOverButton = props.getProperty(SortingHatPropertyType.IMAGE_BUTTON_BACK_MOUSE_OVER);
+        img = loadImage(imgPath + backMouseOverButton);
+        sT.addState(SortingHatTileState.MOUSE_OVER_STATE.toString(), img);
+        s = new Sprite(sT, BACK_BUTTON_X, BACK_BUTTON_Y, 0, 0, SortingHatTileState.INVISIBLE_STATE.toString());
+        guiButtons.put(BACK_BUTTON_TYPE, s);
+        
         // AND THE MISCASTS COUNT
         String miscastCountContainer = props.getProperty(SortingHatPropertyType.IMAGE_DECOR_MISCASTS);
         sT = new SpriteType(MISCASTS_COUNT_TYPE);
@@ -470,6 +485,12 @@ public class SortingHatMiniGame extends MiniGame
             {   eventHandler.respondToNewGameRequest();     }
         });
 
+        //Back Button Event Handler
+        guiButtons.get(BACK_BUTTON_TYPE).setActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent ae)
+            {   eventHandler.respondToBackRequest();    }
+        });
+        
         // STATS BUTTON EVENT HANDLER
         guiButtons.get(STATS_BUTTON_TYPE).setActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent ae)

@@ -39,6 +39,23 @@ public class SortingHatEventHandler
         // AND CLOSE THE ALL
         System.exit(0);        
     }
+    
+    /**
+     * Called when the user clicks the back button.
+     */
+    public void respondToBackRequest(){
+        
+        // IF THE GAME IS STILL GOING ON, END IT AS A LOSS
+        if (game.getDataModel().inProgress())
+        {
+            game.getDataModel().endGameAsLoss();
+        }
+        
+        //Switch to Menu screen.
+        game.switchToSplashScreen();
+    }
+    
+    
 
     /**
      * Called when the user clicks the New button.
