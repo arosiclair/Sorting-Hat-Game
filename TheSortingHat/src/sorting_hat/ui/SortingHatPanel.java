@@ -244,6 +244,12 @@ public class SortingHatPanel extends JPanel
             int x = TIME_X + TIME_OFFSET;
             int y = TIME_Y + TIME_TEXT_OFFSET;
             g.drawString(time, x, y);
+            
+           //Render the number of miscasts
+           String miscasts = "";
+           miscasts += data.getBadSpellsCounter();
+           //game.beginUsingData();
+           g.drawString(miscasts, TILE_COUNT_X + TILE_COUNT_OFFSET, TIME_TEXT_OFFSET);
         }        
         
         // IF THE STATS DIALOG IS VISIBLE, ADD THE TEXTUAL STATS
