@@ -5,6 +5,7 @@ import mini_game.MiniGame;
 import mini_game.Sprite;
 import mini_game.SpriteType;
 import static sorting_hat.SortingHatConstants.*;
+import sorting_hat.data.SortingHatDataModel;
 
 /**
  * This class represents a single tile in the game world.

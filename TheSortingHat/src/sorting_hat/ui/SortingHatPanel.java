@@ -43,7 +43,7 @@ public class SortingHatPanel extends JPanel
     // WE'LL USE THIS AS THE BASE IMAGE FOR RENDERING SELECTED TILES
     private BufferedImage blankTileSelectedImage;
     
-    // THIS IS FOR WHEN THE USE MOUSES OVER A TILE
+    // THIS IS FOR WHEN THE USER MOUSES OVER A TILE
     private BufferedImage blankTileMouseOverImage;
     
     /**
@@ -248,8 +248,20 @@ public class SortingHatPanel extends JPanel
            //Render the number of miscasts
            String miscasts = "";
            miscasts += data.getBadSpellsCounter();
-           //game.beginUsingData();
            g.drawString(miscasts, TILE_COUNT_X + TILE_COUNT_OFFSET, TIME_TEXT_OFFSET);
+           
+           //Render the level's algorithm name
+           String levelName = data.getCurrentLevel();
+           if (levelName.indexOf("BubbleSort") != -1){
+               levelName = "BubbleSort";
+           }else{
+               levelName = "SelectionSort";
+           }
+           x = TEMP_TILE_X + TEMP_TILE_OFFSET_X;
+           y = TIME_TEXT_OFFSET;
+           g.setColor(Color.WHITE);
+           g.setFont(FONT_LEVEL_DISPLAY);
+           g.drawString(levelName, x, y);
         }        
         
         // IF THE STATS DIALOG IS VISIBLE, ADD THE TEXTUAL STATS

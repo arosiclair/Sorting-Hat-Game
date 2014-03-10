@@ -764,6 +764,16 @@ public class SortingHatDataModel extends MiniGameDataModel
                     movingTiles.remove(tile);
                 }
             }
+            
+            //Highlight tiles that are under the mouse.
+            for (SortingHatTile tile : tilesToSort){
+                if(tile.getState() != SortingHatTileState.SELECTED_STATE.toString()){
+                    if(tile.containsPoint(getLastMouseX(), getLastMouseY()))
+                        tile.setState(SortingHatTileState.MOUSE_OVER_STATE.toString());
+                    else
+                        tile.setState(SortingHatTileState.VISIBLE_STATE.toString());
+                }
+            }
 
             // IF THE GAME IS STILL ON, THE TIMER SHOULD CONTINUE
             if (inProgress())

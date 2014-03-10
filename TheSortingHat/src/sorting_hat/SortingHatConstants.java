@@ -88,7 +88,9 @@ public class SortingHatConstants
     public static final int TIME_TEXT_OFFSET = 55;
     public static final int STATS_X = TIME_X + 310 + CONTROLS_MARGIN;
     public static final int STATS_Y = 0;
-    public static final int TEMP_TILE_X = STATS_X + 189 + CONTROLS_MARGIN;
+    public static final int UNDO_X = STATS_X + 160 + CONTROLS_MARGIN;
+    public static final int UNDO_Y = 0;
+    public static final int TEMP_TILE_X = UNDO_X + 130 + CONTROLS_MARGIN;
     public static final int TEMP_TILE_Y = 0;
     public static final int TEMP_TILE_OFFSET_X = 30;
     public static final int TEMP_TILE_OFFSET_Y = 12;
@@ -125,6 +127,7 @@ public class SortingHatConstants
 
     // FONTS USED DURING FOR TEXTUAL GAME DISPLAYS
     public static final Font FONT_TEXT_DISPLAY = new Font(Font.SANS_SERIF, Font.BOLD, 48);
+    public static final Font FONT_LEVEL_DISPLAY = new Font(Font.SANS_SERIF, Font.PLAIN, 24);
     public static final Font FONT_DEBUG_TEXT = new Font(Font.MONOSPACED, Font.BOLD, 14);
     public static final Font FONT_STATS = new Font(Font.MONOSPACED, Font.BOLD, 20);
 }

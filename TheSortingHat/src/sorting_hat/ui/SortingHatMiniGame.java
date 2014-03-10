@@ -411,7 +411,7 @@ public class SortingHatMiniGame extends MiniGame
         s = new Sprite(sT, STATS_X, STATS_Y, 0, 0, SortingHatTileState.INVISIBLE_STATE.toString());
         guiButtons.put(STATS_BUTTON_TYPE, s);
 
-        // AND THE TILE STACK
+        // AND THE ALOGRITHM NAME
         String tileStack = props.getProperty(SortingHatPropertyType.IMAGE_BUTTON_TEMP_TILE);
         sT = new SpriteType(ALGORITHM_TYPE);
         img = loadImageWithColorKey(imgPath + tileStack, COLOR_KEY);
@@ -546,5 +546,6 @@ public class SortingHatMiniGame extends MiniGame
                 }
             }
         }
+        
     }    
 }
