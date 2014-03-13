@@ -278,20 +278,32 @@ public class SortingHatPanel extends JPanel
             String algorithm = record.getAlgorithm(currentLevel);
             int games = record.getGamesPlayed(currentLevel);
             int wins = record.getWins(currentLevel);
+            int perfectWins = record.getPerfectWins(currentLevel);
+            long winTime = record.getFastestWin(currentLevel);
+            String fastTime = data.timeToText(winTime);
 
             // GET ALL THE STATS PROMPTS
             PropertiesManager props = PropertiesManager.getPropertiesManager();            
             String algorithmPrompt = props.getProperty(SortingHatPropertyType.TEXT_LABEL_STATS_ALGORITHM);
             String gamesPrompt = props.getProperty(SortingHatPropertyType.TEXT_LABEL_STATS_GAMES);
             String winsPrompt = props.getProperty(SortingHatPropertyType.TEXT_LABEL_STATS_WINS);
-
+            String perfectWinsPrompt = props.getProperty(SortingHatPropertyType.TEXT_LABEL_STATS_PERFECT_WINS);
+            String fastestWinPrompt = props.getProperty(SortingHatPropertyType.TEXT_LABEL_STATS_FASTEST_PERFECT_WIN);
+            
             // NOW DRAW ALL THE STATS WITH THEIR LABELS
             int dot = levelName.indexOf(".");
+            
+            
             levelName = levelName.substring(0, dot);
             g.drawString(levelName,                                     STATS_LEVEL_X, STATS_LEVEL_Y);
             g.drawString(algorithmPrompt + algorithm,                   STATS_LEVEL_X, STATS_ALGORITHM_Y);
             g.drawString(gamesPrompt + games,                           STATS_LEVEL_X, STATS_GAMES_Y);
             g.drawString(winsPrompt + wins,                             STATS_LEVEL_X, STATS_WINS_Y);
+            g.drawString(perfectWinsPrompt + perfectWins, STATS_LEVEL_X, STATS_PERFECT_WINS_Y);
+            if (winTime == 0)
+                g.drawString(fastestWinPrompt + "N/A", STATS_LEVEL_X, STATS_FASTEST_PERFECT_WIN_Y);
+            else
+                g.drawString(fastestWinPrompt + fastTime, STATS_LEVEL_X, STATS_FASTEST_PERFECT_WIN_Y);
         }
     }
         

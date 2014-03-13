@@ -645,14 +645,24 @@ public class SortingHatDataModel extends MiniGameDataModel
     @Override
     public void endGameAsWin()
     {
+        SortingHatRecord record = ((SortingHatMiniGame) miniGame).getPlayerRecord();
+        
         // UPDATE THE GAME STATE USING THE INHERITED FUNCTIONALITY
         super.endGameAsWin();
 
         // RECORD THE TIME IT TOOK TO COMPLETE THE GAME
         long gameTime = endTime.getTimeInMillis() - startTime.getTimeInMillis();
+        if (record.getFastestWin(currentLevel) == 0)
+            record.changeFastestWin(currentLevel, gameTime);
+        else if(gameTime < record.getFastestWin(currentLevel))
+            record.changeFastestWin(currentLevel, gameTime);
 
         // RECORD IT AS A WIN
-        ((SortingHatMiniGame) miniGame).getPlayerRecord().addWin(currentLevel);
+        record.addWin(currentLevel);
+        
+        //Check if it was a perfect win
+         if (getBadSpellsCounter() <= 0) 
+             record.addPerfectWin(currentLevel);
 
         // SAVE PLAYER DATA
         ((SortingHatMiniGame) miniGame).savePlayerRecord();

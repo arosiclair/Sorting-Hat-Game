@@ -13,4 +13,6 @@ public class SortingHatLevelRecord
     public String algorithm;
     public int gamesPlayed;
     public int wins;
+    public int perfectWins;
+    public long fastestWinTime;
 }
