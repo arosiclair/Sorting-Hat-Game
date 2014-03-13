@@ -35,6 +35,7 @@ public class SortingHatConstants
     public static final String TIME_TYPE = "TIME_TYPE"; 
     public static final String STATS_BUTTON_TYPE = "STATS_BUTTON_TYPE";
     public static final String ALGORITHM_TYPE = "ALGORITHM_TYPE";
+    public static final String UNDO_BUTTON_TYPE = "UNDO_BUTTON_TYPE";
 
     // DIALOG TYPES
     public static final String WIN_DIALOG_TYPE = "WIN_DIALOG_TYPE";
@@ -88,9 +89,9 @@ public class SortingHatConstants
     public static final int TIME_TEXT_OFFSET = 55;
     public static final int STATS_X = TIME_X + 310 + CONTROLS_MARGIN;
     public static final int STATS_Y = 0;
-    public static final int UNDO_X = STATS_X + 160 + CONTROLS_MARGIN;
-    public static final int UNDO_Y = 0;
-    public static final int TEMP_TILE_X = UNDO_X + 130 + CONTROLS_MARGIN;
+    public static final int UNDO_BUTTON_X = STATS_X + 160 + CONTROLS_MARGIN;
+    public static final int UNDO_BUTTON_Y = 0;
+    public static final int TEMP_TILE_X = UNDO_BUTTON_X + 130 + CONTROLS_MARGIN;
     public static final int TEMP_TILE_Y = 0;
     public static final int TEMP_TILE_OFFSET_X = 30;
     public static final int TEMP_TILE_OFFSET_Y = 12;

@@ -55,8 +55,24 @@ public class SortingHatEventHandler
         game.switchToSplashScreen();
     }
     
-    
-
+    /**
+     * Called when the user either clicks the undo button or presses the 'U' key
+     */
+    public void respondToUndoRequest(){
+        SortingHatDataModel data = (SortingHatDataModel)(game.getDataModel());
+        //Ensure the game is in progress
+        if (data.inProgress()){
+            //If there have been no moves made, do nothing.
+            if (data.getTransactionCount() == 0)
+                return;
+            else{
+                SortTransaction lastSwap = data.getLastSwapTransaction();
+                data.swapTiles(lastSwap.getToIndex(), lastSwap.getFromIndex());
+                data.decrementTransactionCount();
+                data.decrementTransactionCount();
+            }
+        }
+    }
     /**
      * Called when the user clicks the New button.
      */
@@ -122,6 +138,10 @@ public class SortingHatEventHandler
                     data.swapTiles(move.getFromIndex(), move.getToIndex());
                     game.getAudio().play(TheSortingHat.SortingHatPropertyType.AUDIO_CUE_CHEAT.toString(), false);
                 }
+            }
+        }else if (keyCode == KeyEvent.VK_U){
+            if(data.inProgress()){
+                respondToUndoRequest();
             }
         }
     }

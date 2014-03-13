@@ -151,8 +151,15 @@ public class SortingHatDataModel extends MiniGameDataModel
     {
         return movingTiles.iterator();
     }
+    
+    public int getTransactionCount(){
+        return transactionCounter;
+    }
 
     // MUTATOR METHODS
+    public void decrementTransactionCount(){
+        transactionCounter--;
+    }
     public void setCurrentLevel(String initCurrentLevel)
     {
         currentLevel = initCurrentLevel;
@@ -481,6 +488,9 @@ public class SortingHatDataModel extends MiniGameDataModel
         return properTransactionOrder.get(transactionCounter);
     }
 
+    public SortTransaction getLastSwapTransaction(){
+        return properTransactionOrder.get(transactionCounter - 1);
+    }
     /**
      * Swaps the tiles at the two indices.
      */

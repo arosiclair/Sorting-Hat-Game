@@ -15,6 +15,8 @@
         <property name="IMAGE_BUTTON_BACK_MOUSE_OVER"       value="./sorting_hat/ButtonBackMouseOver.png"></property>
         <property name="IMAGE_BUTTON_STATS"                 value="./sorting_hat/ButtonStats.png"></property>
         <property name="IMAGE_BUTTON_STATS_MOUSE_OVER"      value="./sorting_hat/ButtonStatsMouseOver.png"></property>
+        <property name="IMAGE_BUTTON_UNDO"                  value="./sorting_hat/ButtonUndo.png"></property>
+        <property name="IMAGE_BUTTON_UNDO_MOUSE_OVER"       value="./sorting_hat/ButtonUndoMouseOver.png"></property>
         <property name="IMAGE_BUTTON_TEMP_TILE"             value="./sorting_hat/ButtonTempTile.png"></property>
         <property name="IMAGE_BUTTON_TEMP_TILE_MOUSE_OVER"  value="./sorting_hat/ButtonTempTileMouseOver.png"></property>
         <property name="IMAGE_CURSOR_WAND"                  value="./sorting_hat/CursorWand.png"></property>

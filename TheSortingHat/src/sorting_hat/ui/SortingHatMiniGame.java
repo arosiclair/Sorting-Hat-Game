@@ -157,6 +157,8 @@ public class SortingHatMiniGame extends MiniGame
         guiDecor.get(TIME_TYPE).setState(SortingHatTileState.VISIBLE_STATE.toString());
         guiButtons.get(STATS_BUTTON_TYPE).setState(SortingHatTileState.VISIBLE_STATE.toString());
         guiButtons.get(STATS_BUTTON_TYPE).setEnabled(true);
+        guiButtons.get(UNDO_BUTTON_TYPE).setState(SortingHatTileState.VISIBLE_STATE.toString());
+        guiButtons.get(UNDO_BUTTON_TYPE).setEnabled(true);
         guiDecor.get(ALGORITHM_TYPE).setState(SortingHatTileState.VISIBLE_STATE.toString());
         
         // DEACTIVATE THE LEVEL SELECT BUTTONS
@@ -195,6 +197,8 @@ public class SortingHatMiniGame extends MiniGame
         guiDecor.get(TIME_TYPE).setState(SortingHatTileState.INVISIBLE_STATE.toString());
         guiButtons.get(STATS_BUTTON_TYPE).setState(SortingHatTileState.INVISIBLE_STATE.toString());
         guiButtons.get(STATS_BUTTON_TYPE).setEnabled(false);
+        guiButtons.get(UNDO_BUTTON_TYPE).setState(SortingHatTileState.INVISIBLE_STATE.toString());
+        guiButtons.get(UNDO_BUTTON_TYPE).setEnabled(false);
         guiDecor.get(ALGORITHM_TYPE).setState(SortingHatTileState.INVISIBLE_STATE.toString());
         
         // ACTIVATE THE LEVEL SELECT BUTTONS
@@ -410,6 +414,17 @@ public class SortingHatMiniGame extends MiniGame
         sT.addState(SortingHatTileState.MOUSE_OVER_STATE.toString(), img);
         s = new Sprite(sT, STATS_X, STATS_Y, 0, 0, SortingHatTileState.INVISIBLE_STATE.toString());
         guiButtons.put(STATS_BUTTON_TYPE, s);
+        
+        //The undo button
+        String undoButton = props.getProperty(SortingHatPropertyType.IMAGE_BUTTON_UNDO);
+        sT = new SpriteType(UNDO_BUTTON_TYPE);
+        img = loadImage(imgPath + undoButton);
+        sT.addState(SortingHatTileState.VISIBLE_STATE.toString(), img);
+        String undoMouseOverButton = props.getProperty(SortingHatPropertyType.IMAGE_BUTTON_UNDO_MOUSE_OVER);
+        img = loadImage(imgPath + undoMouseOverButton);
+        sT.addState(SortingHatTileState.MOUSE_OVER_STATE.toString(), img);
+        s = new Sprite(sT, UNDO_BUTTON_X, UNDO_BUTTON_Y, 0, 0, SortingHatTileState.INVISIBLE_STATE.toString());
+        guiButtons.put(UNDO_BUTTON_TYPE, s);
 
         // AND THE ALOGRITHM NAME
         String tileStack = props.getProperty(SortingHatPropertyType.IMAGE_BUTTON_TEMP_TILE);
@@ -495,6 +510,12 @@ public class SortingHatMiniGame extends MiniGame
         guiButtons.get(STATS_BUTTON_TYPE).setActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent ae)
             {   eventHandler.respondToDisplayStatsRequest();    }
+        });
+        
+        //Undo button event handler
+        guiButtons.get(UNDO_BUTTON_TYPE).setActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent ae)
+            {   eventHandler.respondToUndoRequest();    }
         });
         
         // KEY LISTENER - LET'S US PROVIDE CUSTOM RESPONSES
