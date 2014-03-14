@@ -455,14 +455,31 @@ public class SortingHatDataModel extends MiniGameDataModel
 
         // THIS HAS THE APPROXIMATE PATH NODES, WHICH WE'LL SLIGHTLY
         // RANDOMIZE FOR EACH TILE FOLLOWING THE PATH.
-        winPath.add(viewport.getScreenWidth() - WIN_PATH_COORD);
+//        winPath.add(viewport.getScreenWidth() - WIN_PATH_COORD);
+//        winPath.add(WIN_PATH_COORD);
+//        winPath.add(WIN_PATH_COORD);
+//        winPath.add(WIN_PATH_COORD);
+//        winPath.add(WIN_PATH_COORD);
+//        winPath.add(viewport.getScreenHeight() - WIN_PATH_COORD);
+//        winPath.add(viewport.getScreenWidth() - WIN_PATH_COORD);
+//        winPath.add(viewport.getScreenHeight() - WIN_PATH_COORD);
+//        moveAllTilesToStack();
+        
+        //Left point on the star
         winPath.add(WIN_PATH_COORD);
-        winPath.add(WIN_PATH_COORD);
-        winPath.add(WIN_PATH_COORD);
-        winPath.add(WIN_PATH_COORD);
+        winPath.add(viewport.getScreenHeight()/2);
+        //Bottom right point
+        winPath.add((viewport.getScreenWidth()/3)*2);
         winPath.add(viewport.getScreenHeight() - WIN_PATH_COORD);
-        winPath.add(viewport.getScreenWidth() - WIN_PATH_COORD);
+        //Top point
+        winPath.add(viewport.getScreenWidth()/2);
+        winPath.add(WIN_PATH_COORD);
+        //Bottom left point
+        winPath.add(viewport.getScreenWidth()/3);
         winPath.add(viewport.getScreenHeight() - WIN_PATH_COORD);
+        //Right point
+        winPath.add(viewport.getScreenWidth() - WIN_PATH_COORD);
+        winPath.add(viewport.getScreenHeight()/2);
         moveAllTilesToStack();
 
         // START THE ANIMATION FOR ALL THE TILES

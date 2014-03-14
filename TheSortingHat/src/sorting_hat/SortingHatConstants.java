@@ -113,7 +113,7 @@ public class SortingHatConstants
     public static final long MILLIS_IN_AN_HOUR  = 1000 * 60 * 60;
 
     // USED FOR DOING OUR VICTORY ANIMATION
-    public static final int WIN_PATH_NODES = 4;
+    public static final int WIN_PATH_NODES = 5;
     public static final int WIN_PATH_TOLERANCE = 100;
     public static final int WIN_PATH_COORD = 100;
 
