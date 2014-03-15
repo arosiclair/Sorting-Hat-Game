@@ -85,3 +85,48 @@ class BubbleSortAlgorithm extends SortingHatAlgorithm
         return transactions;
     }
 }
+
+class SelectionSortAlgorithm extends SortingHatAlgorithm{
+    
+    public SelectionSortAlgorithm(ArrayList<SortingHatTile> initDataToSort, String initName)
+    {
+        // INVOKE THE PARENT CONSTRUCTOR
+        super(initDataToSort, initName);
+    }
+    
+    public ArrayList<SortTransaction> generateSortTransactions(){
+        
+        ArrayList<SortTransaction> transactions = new ArrayList();
+        
+        //Copy SortingHatTiles to sort.
+        ArrayList<SortingHatTile> copy = new ArrayList();
+        for (SortingHatTile tile : dataToSort){
+            copy.add(tile);
+        }
+        
+        for (int i = 0; i < copy.size(); i++){
+            //Create a reference to the minimum tile that will be found and its index.
+            SortingHatTile min = copy.get(i + 1);
+            int minIndex = i + 1;
+            
+            //Find the minimum tile.
+            for (int j = i + 1; j < copy.size(); j++){
+                if (min.getID() > copy.get(j + 1).getID()){
+                    min = copy.get(j + 1);
+                    minIndex = j + 1;             
+                }
+            }
+            
+            //Swap the minimum with i
+            SortingHatTile temp = copy.get(i);
+            copy.set(i, min);
+            copy.set(minIndex, temp);
+            
+            //Generate sort transaction
+            SortTransaction trans = new SortTransaction(i, minIndex);
+            transactions.add(trans);
+        }
+        
+        return transactions;
+    }
+}
