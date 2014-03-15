@@ -53,6 +53,9 @@ public class SortingHatMiniGame extends MiniGame
     
     // THE SCREEN CURRENTLY BEING PLAYED
     private String currentScreenState;
+    
+    //Number of game levels
+    private int numOfLevels;
 
     // ACCESSOR METHODS
         // - getPlayerRecord
@@ -89,6 +92,10 @@ public class SortingHatMiniGame extends MiniGame
     public SortingHatFileManager getFileManager()
     {
         return fileManager;
+    }
+    
+    public int getNumOfLevels(){
+        return numOfLevels;
     }
 
     /**
@@ -348,6 +355,7 @@ public class SortingHatMiniGame extends MiniGame
         // ADD A BUTTON FOR EACH LEVEL AVAILABLE
         ArrayList<String> levels = props.getPropertyOptionsList(SortingHatPropertyType.LEVEL_OPTIONS);
         ArrayList<String> levelImageNames = props.getPropertyOptionsList(SortingHatPropertyType.LEVEL_IMAGE_OPTIONS);
+        numOfLevels = levels.size();
         ArrayList<String> levelMouseOverImageNames = props.getPropertyOptionsList(SortingHatPropertyType.LEVEL_MOUSE_OVER_IMAGE_OPTIONS);
         float totalWidth = levels.size() * (LEVEL_BUTTON_WIDTH + LEVEL_BUTTON_MARGIN) - LEVEL_BUTTON_MARGIN;
         Viewport viewport = data.getViewport();

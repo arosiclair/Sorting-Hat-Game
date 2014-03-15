@@ -7,6 +7,8 @@ import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
 import java.util.ArrayList;
 import mini_game.Viewport;
 import sorting_hat.TheSortingHat.SortingHatPropertyType;
@@ -140,6 +142,49 @@ public class SortingHatFileManager
      */
     public void saveRecord(SortingHatRecord record)
     {
+        SortingHatDataModel data = (SortingHatDataModel)miniGame.getDataModel();
+        SortingHatRecord recordToSave = miniGame.getPlayerRecord();
+ 
+        
+        try{
+            //Find the record file.
+            PropertiesManager props = PropertiesManager.getPropertiesManager();
+            String recordPath = PATH_DATA + props.getProperty(SortingHatPropertyType.FILE_PLAYER_RECORD);
+            File fileToSave = new File(recordPath);
+            ArrayList<String> levels = props.getPropertyOptionsList(SortingHatPropertyType.LEVEL_OPTIONS);
+            
+            //Open Data stream
+            FileOutputStream out = new FileOutputStream(fileToSave);
+            DataOutputStream dos = new DataOutputStream(out);
+            
+            //Save the number of levels
+            dos.write(levels.size());
+            
+            //Save stats for each individual level.
+            for (int i = 0; i < miniGame.getNumOfLevels(); i++)
+            {
+                if(recordToSave.getAlgorithm(PATH_DATA + levels.get(i)) == null){
+                    dos.writeUTF(levels.get(i));
+                    if (levels.get(i).indexOf("Bubble") > 0){
+                        dos.writeUTF("BUBBLE_SORT");
+                    }else
+                        dos.writeUTF("SELECTION_SORT");
+                    dos.writeInt(0);
+                    dos.writeInt(0);
+                    dos.writeInt(0);
+                    dos.writeLong(0);
+                }else{
+                dos.writeUTF(levels.get(i));
+                
+                dos.writeUTF(recordToSave.getAlgorithm(PATH_DATA + levels.get(i)));
+                dos.writeInt(recordToSave.getGamesPlayed(PATH_DATA + levels.get(i)));
+                dos.writeInt(recordToSave.getWins(PATH_DATA + levels.get(i)));
+                dos.writeInt(recordToSave.getPerfectWins(PATH_DATA + levels.get(i)));
+                dos.writeLong(recordToSave.getFastestWin(PATH_DATA + levels.get(i)));}
+           }
+        }catch (IOException e){
+           miniGame.getErrorHandler().processError(SortingHatPropertyType.TEXT_ERROR_SAVING_RECORD); 
+        }
 
     }
 
@@ -189,6 +234,8 @@ public class SortingHatFileManager
                 rec.algorithm = dis.readUTF();
                 rec.gamesPlayed = dis.readInt();
                 rec.wins = dis.readInt();
+                rec.perfectWins = dis.readInt();
+                rec.fastestWinTime = dis.readLong();
                 recordToLoad.addSortingHatLevelRecord(levelName, rec);
             }
         }
