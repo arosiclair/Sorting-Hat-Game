@@ -27,7 +27,8 @@ public class SortingHatAlgorithmFactory
         if (premadeSortingHatAlgorithms == null)
         {
             premadeSortingHatAlgorithms = new HashMap();
-            premadeSortingHatAlgorithms.put(SortingHatAlgorithmType.BUBBLE_SORT,    new BubbleSortAlgorithm(initDataToSort,        algorithmType.toString()));
+            premadeSortingHatAlgorithms.put(SortingHatAlgorithmType.BUBBLE_SORT,    new BubbleSortAlgorithm(initDataToSort, algorithmType.toString()));
+            premadeSortingHatAlgorithms.put(SortingHatAlgorithmType.SELECTION_SORT, new SelectionSortAlgorithm(initDataToSort, algorithmType.toString()));
         }
         // RETURN THE REQUESTED ONE
         return premadeSortingHatAlgorithms.get(algorithmType);
@@ -104,13 +105,13 @@ class SelectionSortAlgorithm extends SortingHatAlgorithm{
             copy.add(tile);
         }
         
-        for (int i = 0; i < copy.size(); i++){
+        for (int i = 0; i < copy.size() - 1; i++){
             //Create a reference to the minimum tile that will be found and its index.
             SortingHatTile min = copy.get(i + 1);
             int minIndex = i + 1;
             
             //Find the minimum tile.
-            for (int j = i + 1; j < copy.size(); j++){
+            for (int j = i + 1; j < copy.size() - 1; j++){
                 if (min.getID() > copy.get(j + 1).getID()){
                     min = copy.get(j + 1);
                     minIndex = j + 1;             

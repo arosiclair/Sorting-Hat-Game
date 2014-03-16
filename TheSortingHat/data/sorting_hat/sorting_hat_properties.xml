@@ -62,14 +62,20 @@
         <property_options name="LEVEL_OPTIONS">
             <option>./sorting_hat/BubbleSortCoil.sort</option>
             <option>./sorting_hat/BubbleSortO.sort</option>
+            <option>./sorting_hat/SelectionSortZ.sort</option>
+            <option>./sorting_hat/SelectionSortW.sort</option>
         </property_options>
         <property_options name="LEVEL_IMAGE_OPTIONS">
             <option>./sorting_hat/ButtonBubbleSortCoil.png</option>
             <option>./sorting_hat/ButtonBubbleSortO.png</option>
+            <option>./sorting_hat/ButtonSelectionSortZ.png</option>
+            <option>./sorting_hat/ButtonSelectionSortW.png</option>
         </property_options>
         <property_options name="LEVEL_MOUSE_OVER_IMAGE_OPTIONS">
             <option>./sorting_hat/ButtonBubbleSortCoilMouseOver.png</option>
             <option>./sorting_hat/ButtonBubbleSortOMouseOver.png</option>
+            <option>./sorting_hat/ButtonSelectionSortZMouseOver.png</option>
+            <option>./sorting_hat/ButtonSelectionSortWMouseOver.png</option>
         </property_options>
     </property_options_list>
 </properties>
